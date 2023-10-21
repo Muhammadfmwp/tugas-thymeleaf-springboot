@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>List Mahasiswa</title>
+<link th:href="@{/css/style.css}" rel="stylesheet">
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+
+	<div class="container">
+		<center>
+		<div class="form" style="opacity:80%;width: 100%;color: white; height: auto;margin:auto">
+			  <a th:href="@{/}" class="back-btn" style="margin-left: -26rem;">Kembali</a>
+	<h1>List Mahasiswa</h1>
+	<table class="table" style="color: white;">
+		<thead>
+			<tr>
+				<th scope="col">NIM</th>
+				<th scope="col">Nama</th>
+				<th scope="col">Alamat</th>
+				<th scope="col">Tanggal Lahir</th>
+				<th scope="col" rowspan="2"></th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="mahasiswa: ${listMahasiswa}">
+				<td th:text="${mahasiswa.nim}"></td>
+				<td th:text="${mahasiswa.nama}"></td>
+				<td th:text="${mahasiswa.alamat}"></td>
+				<td th:text="${mahasiswa.tglLahir}"></td>
+				<td><a th:href="@{'/editMahasiswa/' + ${mahasiswa.nim}}" class="btn btn-primary">Update</a></td>
+				<td><a th:href="@{'/deleteMahasiswa/' + ${mahasiswa.nim}}" class="btn btn-danger">Delete</a></td>
+		</tr>
+		</tbody>
+	</table>
+	</div>
+	</center>
+	</div>
+
+</body>
+</html>

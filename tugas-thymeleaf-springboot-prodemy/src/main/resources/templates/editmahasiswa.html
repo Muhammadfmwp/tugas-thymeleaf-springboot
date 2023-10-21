@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Edit Mahasiswa</title>
+<link th:href="@{/css/style.css}" rel="stylesheet">
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+       <div class="form" style="opacity:80%">
+		   <form th:action="@{/addMahasiswa}" th:object="${mahasiswa}" method="post" >
+      <a th:href="@{/}" class="back-btn">Kembali</a>
+      
+         <center>
+           <div class="title">Data Mahasiswa</div> 
+      </center>
+       <div class="input-container ic1">
+      <input type="text" th:field="*{nama}"  class="input" th:value="${mahasiswa.nama}" style="background-color:white"  />
+        <div class="cut"></div>
+        <label for="name" class="placeholder">Nama</label>
+        </div>
+      <input type="text" th:field="*{nim}"  class="input" th:value="${mahasiswa.nim}" style="background-color:white"  hidden/>
+          <div class="input-container ic1">
+      <input type="text" th:field="*{alamat}" class="input" th:value="${mahasiswa.alamat}" style="background-color:white"  />
+        <div class="cut"></div>
+        <label for="name" class="placeholder">Alamat</label>
+        </div>
+               <div class="input-container ic1">
+      <input type="date" th:field="*{tglLahir}"  class="input" th:value="${mahasiswa.tglLahir}" style="background-color:white"  />
+        <div class="cut" style="width: 115px;"></div>
+        <label for="name" class="placeholder">Tanggal Lahir</label>
+          <button type="text" class="submit" style="width: 50%;margin-left: 6.5rem;">Update</button>
+        </div>
+		   </form>
+    </div>
+</body>
+</html>
