@@ -2,18 +2,23 @@ package com.fakhri.springboot.model;
 
 import java.sql.Date;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "mahasiswa")
 public class Mahasiswa {
 	
 	@Id
+	@NotEmpty(message = "NIM tidak boleh kosong")
+	@Size(min=1,max = 12)
 	private String nim;
 	
 	@Column(name = "nama")

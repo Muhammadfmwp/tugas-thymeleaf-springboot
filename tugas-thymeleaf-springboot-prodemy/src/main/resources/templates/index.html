@@ -20,6 +20,7 @@
       </div>
       <div class="input-container ic2">
        <input type="text" name="nim" th:field="*{nim}"  class="input" placeholder="Masukkan NIM" required/>
+        <p th:if="${#fields.hasErrors('nim')}" th:errorclass="error" th:errors="*{nim}"></p>
         <div class="cut cut-short"></div>
         <label for="lastname" class="placeholder">NIM</label>
       </div>

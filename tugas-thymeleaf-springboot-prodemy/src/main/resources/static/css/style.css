@@ -9,6 +9,10 @@
 	  overflow: hidden; /* Hide scrollbars */
 	}
 	
+	.error{
+		color:red;
+	}
+	
 	.form {
 	  background-color: #15172b;
 	  margin: 20rem 0;

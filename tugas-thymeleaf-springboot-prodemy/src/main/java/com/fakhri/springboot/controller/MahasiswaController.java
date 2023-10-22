@@ -1,8 +1,12 @@
 package com.fakhri.springboot.controller;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.fakhri.springboot.model.Mahasiswa;
 import com.fakhri.springboot.service.MahasiswaService;
+
+import jakarta.validation.Valid;
 
 @Controller
 public class MahasiswaController {
@@ -31,7 +37,12 @@ public class MahasiswaController {
 	}
 	
 	@PostMapping("/addMahasiswa")
-	public String addMahasiswa(@ModelAttribute("mahasiswa") Mahasiswa mahasiswa) {
+	public String addMahasiswa(@Valid @ModelAttribute("mahasiswa") Mahasiswa mahasiswa, BindingResult bindingResult, Model model) {
+		boolean errors = bindingResult.hasErrors();
+		if(errors) {
+			model.addAttribute(mahasiswa);
+			return "index";
+		}
 		mahasiswaService.addMahasiswa(mahasiswa);
 		return "redirect:/list";
 	}
