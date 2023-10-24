@@ -7,11 +7,10 @@
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 <body>
-       <div class="form" style="opacity:80%">
+      <div class="form" style="opacity:80%">
 		   <form th:action="@{/addMahasiswa}" th:object="${mahasiswa}" method="post" >
-      <a th:href="@{/}" class="back-btn">Kembali</a>
-      
-         <center>
+      <a th:href="@{/list}" class="back-btn">Kembali</a>
+      <center>
            <div class="title">Data Mahasiswa</div> 
       </center>
        <div class="input-container ic1">
